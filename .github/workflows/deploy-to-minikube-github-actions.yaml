@@ -1,6 +1,8 @@
 name: Deploy to Minikube using GitHub Actions
+on:
+ push:
+    branches: [ main ]
 
-on: [push]
 jobs:
   job1:
     runs-on: ubuntu-latest
