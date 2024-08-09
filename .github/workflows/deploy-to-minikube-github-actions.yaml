@@ -6,16 +6,14 @@ on:
 jobs:
   job1:
     runs-on: ubuntu-latest
-    name: build Node.js Docker Image and deploy to minikube
+    name: build Node.js Docker Image and deploy to eks
     steps:
     - uses: actions/checkout@v3
     - name: Build image
       run: |
-          export SHELL=/bin/bash
-          eval $(minikube -p minikube docker-env)
           docker build -f ./Dockerfile -t pathidocker/node-app:latest .
           echo -n "verifying images:"
           docker images         
-    - name: Deploy to minikube
+    - name: Deploy to eks
       run:
         kubectl apply -f k8s-node-app.yaml
