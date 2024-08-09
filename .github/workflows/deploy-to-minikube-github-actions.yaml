@@ -5,7 +5,7 @@ on:
 
 jobs:
   job1:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     name: build Node.js Docker Image and deploy to eks
     steps:
     - uses: actions/checkout@v3
